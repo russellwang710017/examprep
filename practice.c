@@ -1,20 +1,21 @@
 #include<stdio.h>
+#include<stdlib.h>
 
 int main(int argc, char *argv[]){
-	int a;
-	int b;
-	int c;
-	char x ='x';
-
-	printf("Please enter a number.");
-	scanf("%d", &a);
+	char c;     
 	
-	for(b=0; b<a; b++){
-		for(c=0; c<a; c++){
-			printf("x");
-		}
-		printf("\n");
+	FILE *in, *out;                  
+	in = fopen(argv[1], "rt");	
+	out = fopen(argv[2], "wt");
+
+	c = fgetc(in);
+	      
+	while(!feof(in)){
+		fputc(c, out);
+		c = fgetc(in);
 	}
-	return 0;
+	
+	fclose(in);
+	fclose(out);
 }
 
