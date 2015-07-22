@@ -1,20 +1,13 @@
 #include<stdio.h>
 
 int main(int argc, char *argv[]){
-	char c;     
+	char str[50];
 	
-	FILE *in, *out;                  
-	in = fopen(argv[1], "rt");	
-	out = fopen(argv[2], "wt");
-
-	c = fgetc(in);
-	      
-	while(!feof(in)){
-		fputc(c, out);
-		c = fgetc(in);
-	}
+	printf("Enter a string: ");
+	gets(str);
 	
-	fclose(in);
-	fclose(out);
+	printf("You entered: %s\n", str);
+	
+	return(0);      
 }
 
