@@ -1,10 +1,12 @@
 #include<stdio.h>
 
-int len;
+int len1;
+int len2;
 int cp;
-char test1[] = "Billie";
-char test2[] = "Bill";
-char test3[7];
+char Bob[] = "Bob";
+char Billie[] = "Billie";
+char Shannon[] = "Shannon";
+char copyArray[8];
 
 int mystrlen(char *pointer){
 	int c = 0;
@@ -27,60 +29,59 @@ void mystrcpy(char src[], char dst[]){
 
 int mystrcmp(char s1[], char s2[]){
 	int cmp;
-	int i;
-	int len1;
-	int len2;
+	int c = 0;
 	
+	while(s1[c] == s2[c]){
+		if(s1[c] == '\0' || s2[c] == '\0'){
+			break;
+		}
+		c++;
+	}
+
+	if(s1[c] == '\0' && s2[c] == '\0'){
+		return 0;
+	}else{
+		return s1[c] - s2[c];
+	}
+}
+
+void display(char s1[], char s2[]){
+	printf("The 2 strings being compared are %s and %s.\n", s1, s2);
+	
+	cp = mystrcmp(s1, s2);
+
 	len1 = mystrlen(s1);
 	len2 = mystrlen(s2);
+	printf("The result of the comparison is %d\n", cp);
+	printf("The length of %s is %d and the length of %s is %d.\n", s1, len1, s2, len2);
 
-	printf("len1 = %d, len2 = %d\n", len1, len2);
-
-	//use the shorter length as the limit
-	if(len1 >= len2){ //use len2 as the limit
-		i = 0;
-		while(s1[i] = s2[i] && i < len2){
-			i++;
-			printf("s1[%d] = %d, s2[%d] = %d, i = %d\n", i, s1[i], i, s2[i], i);
-		}
-		printf("s1[%d] = %d, s2[%d] = %d, i = %d\n", i, s1[i], i, s2[i], i);
-		cmp = s1[i] - s2[i];
+	if(cp>0){
+		printf("The string %s is larger than the string %s.\n", s1, s2);
+	}	
+	else if(cp<0){
+		printf("The string %s is smaller than the string %s.\n", s1, s2);
 	}
-
 	else{
-		i = 0;
-		while(s1[i] = s2[i] && i < len1){
-			i++;
-			printf("s1[%d] = %d, s2[%d] = %d, i = %d\n", i, s1[i], i, s2[i], i);
-		}
-		printf("s1[%d] = %d, s2[%d] = %d, i = %d\n", i, s1[i], i, s2[i], i);
-		cmp = s1[i] - s2[i];	
+		printf("The 2 strings are equal.\n");
 	}
-	return cmp;
+
+	printf("\n");
 }
 
 void main(){
-	len = mystrlen(test1);
-	printf("The length of the string %s is %d.\n", test1, len);
 
-	mystrcpy(test1, test3);
+	mystrcpy(Bob, copyArray);
+	printf("The initial string is %s and the copied string is %s.\n", Bob, copyArray);
 
-	printf("The copied string is %s.\n", test3);
+	printf("The copied string is %s.\n", copyArray);
 
-	printf("The 2 strings being compared are %s and %s.\n", test1, test2);
+	printf("\n");
+
+	display(Bob, copyArray);
+
+	display(Billie, copyArray);
+
+	display(Shannon, copyArray);
 	
-	cp = mystrcmp(test1, test2);
-
-	printf("%d\n", cp);
-
-	if(cp>0){
-		printf("The string %s is larger than the string %s.\n", test1, test2);
-	}	
-	else if(cp=0){
-		printf("The 2 strings are equal.\n");
-	}
-	else{
-		printf("The string %s is smaller than the string %s.\n", test1, test2);
-	}
-	
+	printf("What's going on here?\n");
 }
