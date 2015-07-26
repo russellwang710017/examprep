@@ -2,7 +2,7 @@
 #define TRUE 1
 #define FALSE 0
 
-struct NODES
+typedef struct NODES
 {
 	int value;
 	struct NODE *next;

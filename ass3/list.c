@@ -17,7 +17,7 @@ BOOLEAN delete(int val){
 	return TRUE;
 }
 
-struct NODE *find(int val){
-	struct NODE *ptr = NULL;
+NODE *find(int val){
+	NODE *ptr = NULL;
 	return ptr;
 }
