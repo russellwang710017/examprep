@@ -1,4 +1,4 @@
-#include"list.h"
+#include"list.c"
 
 void main(){
 	print();
