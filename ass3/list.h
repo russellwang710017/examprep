@@ -8,9 +8,12 @@ typedef struct NODES
 	struct NODE *next;
 }NODE;
 
+NODE *head = NULL;
+NODE *curr = NULL;
+
 void print();
 
-void add(int);
+NODE* add(int);
 
 void prettyPrint();
 
