@@ -8,11 +8,11 @@ my $random_number = int(rand($range));
 my $trial = 1;
 
 #print $random_number. "\n"; for debug use
-
+#Note: last cannot be used with do-while loop, need to use last OUTER.
 OUTER: while($trial <= 6){
 	do{
 		if($trial >= 6){
-			last;
+			last OUTER;
 		}
 		$trial = $trial + 1;
 		print "Please guess the number: \n";
