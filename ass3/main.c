@@ -12,6 +12,8 @@ void main(){
 		search = fopen(input, "rt");
 	}while(search==NULL);
 	
+	prettyPrint();
+	
 	while(!feof(search)){
 		fscanf(search, "%d\n", &intadd);
 		add(intadd);

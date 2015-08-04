@@ -40,15 +40,20 @@ void prettyPrint(){ //implement this second
 	NODE *ptr = head;
 	
 	printf("\n-----Printing List Starts-----\n");
-	while(ptr != NULL){
-		printf("\n [%d] \n", ptr->value);
-		ptr = ptr->next;
-	}
+	if(ptr != NULL){
+		while(ptr != NULL){
+			printf("\n [%d] \n", ptr->value);
+			ptr = ptr->next;
+		}
 
-	printf("\n-----Printing List Ends-----\n");
+		printf("\n-----Printing List Ends-----\n");
+	}else{
+		printf("List is empty.\n");
+		printf("\n-----Printing List Ends-----\n");
+	}
 }
 
-NODE *find(int val){ //implement this third
+NODE *find(int val, NODE **prev){ //implement this third
 	NODE *ptr = head; //Need to first define head in the main method
 	NODE *tmp = NULL;
 	BOOLEAN found = FALSE;
@@ -66,7 +71,10 @@ NODE *find(int val){ //implement this third
 	}
 
 	if(found){
-		return ptr;	
+		if(prev){
+			*prev = tmp;
+		}
+		return ptr;
 	}
 	else{
 		return NULL;
@@ -76,31 +84,39 @@ NODE *find(int val){ //implement this third
 BOOLEAN delete(int val){ //implement this last
 	NODE *prev = NULL;
 	NODE *del = NULL;
-	
+	int i;
+
 	printf("\nDeleting value [%d] from list\n", val);
 	
-	del = find(val);
-	
-	if(del == NULL){
-		return FALSE;
-	}
-	else{
-		if(prev != NULL){
-			prev->next = del->next;
+	del = find(val, &prev);
+	for(i=0; i<1; i++){
+		if(del == NULL){
+			return FALSE;
 		}
-		
-		if(del == curr){
-			curr = prev;
+		else{
+			if(prev != NULL){
+				prev->next = del->next;
+			}
+			
+			if(del == curr){ //if there's only one node left, then the node is both curr and head
+				if(head->next == NULL){
+					free(head);
+					head = NULL;
+					return TRUE;
+					break;
+				}
+				curr = prev;
+			}
+
+			else if(del == head){
+				head = del->next;
+			}
 		}
 
-		else if(del == head){
-			head = del->next;
-		}
-	}
-
-	free(del);
-	del = NULL;
+		free(del);
+		del = NULL;
 	
-	return TRUE;
+		return TRUE;
+	}
 }
 
