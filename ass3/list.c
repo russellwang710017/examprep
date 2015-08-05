@@ -1,36 +1,41 @@
-#include<stdio.h>
+#define BOOLEAN int
+#define TRUE 1
+#define FALSE 0
 #include<stdlib.h>
-#include<string.h>
-#include"list.h"
 
-void print(){
+typedef struct NODES
+{
+	int value;
+	struct NODE *next;
+}NODE;
+
+NODE *head = NULL;
+NODE *curr = NULL;
+
+/*void print(){
 	printf("Program Running!\n");
-}
+}*/
 
-NODE* add(int val){ //implement this first
+void add(int val){ //implement this first
 	if(NULL == head){
 		printf("\nCreating list with head NODE as [%d].\n", val);
 		NODE *ptr = (NODE*)malloc(sizeof(NODE));
 		if(NULL == ptr){
 			printf("\nNODE Creation Failed.\n");
-			return NULL;
 		}
 		ptr->value = val;
 		ptr->next = NULL;
 		head = curr = ptr;
-		return ptr;
 	}else{
 		printf("\nAdding NODE to end of list with value [%d].\n", val);
 		NODE *ptr = (NODE*)malloc(sizeof(NODE));
 		if(NULL == ptr){
 			printf("\nNODE Creation Failed.\n");
-			return NULL;
 		}else{
 			ptr->value = val;
 			ptr->next = NULL;
 			curr->next = ptr;
 			curr = ptr;
-			return ptr;
 		}
 	}
 	printf("function executing!\n");	

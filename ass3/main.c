@@ -1,4 +1,5 @@
-#include"list.c"
+#include<string.h>
+#include"list.h"
 
 void main(){
 	FILE *search;
