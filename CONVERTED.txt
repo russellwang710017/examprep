@@ -1,0 +1,12 @@
+0001 Dear Mom,
+0002 
+0003 School is great!
+0004 Can't wait to get home for the holidays.
+0005 Etc
+0006 
+0007 A long date is considered to be something like: "1 Jan 04". A short date is considered to be: "1 Jan 04". The months can be anything from January to December while the days and years are assumed to be correct
+0008 (i.e. for example, you do not need to verify that the number of days obeys rules like months have at most 31 days).
+0009 
+0010 The program outputs the converted FILENAME.txt into another file called CONVERTED.txt.
+0011 
+0012 There is no interface to a CGI file.

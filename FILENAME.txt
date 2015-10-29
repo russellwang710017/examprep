@@ -1,0 +1,12 @@
+Dear Mom,
+
+School is great!
+Can't wait to get home for the holidays.
+Etc
+
+A long date is considered to be something like: "January 1, 2004". A short date is considered to be: "1 Jan 04". The months can be anything from January to December while the days and years are assumed to be correct
+(i.e. for example, you do not need to verify that the number of days obeys rules like months have at most 31 days).
+
+The program outputs the converted FILENAME.txt into another file called CONVERTED.txt.
+
+There is no interface to a CGI file.

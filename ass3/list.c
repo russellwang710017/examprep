@@ -38,7 +38,7 @@ void add(int val){ //implement this first
 			curr = ptr;
 		}
 	}
-	printf("function executing!\n");	
+	//printf("function executing!\n");	
 }
 
 void prettyPrint(){ //implement this second
@@ -53,7 +53,7 @@ void prettyPrint(){ //implement this second
 
 		printf("\n-----Printing List Ends-----\n");
 	}else{
-		printf("List is empty.\n");
+		printf("\nList is empty.\n");
 		printf("\n-----Printing List Ends-----\n");
 	}
 }
@@ -77,7 +77,7 @@ NODE *find(int val, NODE **prev){ //implement this third
 
 	if(found){
 		if(prev){
-			*prev = tmp;
+			*prev = tmp;//tmp is the address of the pointer that the pointer to the pointer(**prev) points to. So here we're letting the pointer to a pointer, **prev, points to the pointer tmp.
 		}
 		return ptr;
 	}
